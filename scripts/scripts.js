@@ -1,6 +1,23 @@
+import words from "../fiveLetterEnglishWords.json" with { type: 'json' };
+
 const submitButton = document.getElementById('submit-button');
 const resetButton = document.getElementById('reset-button');
-const answer = "sweat";
+
+// Get random word from database for the game
+const getRandomInt = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+const getGameAnswer = () => {
+    const wordsArray = words.words;
+    return wordsArray[getRandomInt(0, wordsArray.length - 1)];
+}
+
+const answer = getGameAnswer();
+console.log("The answer is: " + answer);
+
 
 
 // Function that checks the word against the answer and changes background colors of squares if correct
