@@ -6,6 +6,7 @@ const answer = "sweat";
 // Function that checks the word against the answer and changes background colors of squares if correct
 const checkWord = (word) => {
 
+    // Getting the values of each square and setting them into an array
     let row1box0Value = document.getElementById('row1box0').value.toLowerCase();
     let row1box1Value = document.getElementById('row1box1').value.toLowerCase();
     let row1box2Value = document.getElementById('row1box2').value.toLowerCase();
@@ -18,15 +19,34 @@ const checkWord = (word) => {
     let row2box3Value = document.getElementById('row2box3').value.toLowerCase();
     let row2box4Value = document.getElementById('row2box4').value.toLowerCase();
 
+    let row3box0Value = document.getElementById('row3box0').value.toLowerCase();
+    let row3box1Value = document.getElementById('row3box1').value.toLowerCase();
+    let row3box2Value = document.getElementById('row3box2').value.toLowerCase();
+    let row3box3Value = document.getElementById('row3box3').value.toLowerCase();
+    let row3box4Value = document.getElementById('row3box4').value.toLowerCase();
+
+    let row4box0Value = document.getElementById('row4box0').value.toLowerCase();
+    let row4box1Value = document.getElementById('row4box1').value.toLowerCase();
+    let row4box2Value = document.getElementById('row4box2').value.toLowerCase();
+    let row4box3Value = document.getElementById('row4box3').value.toLowerCase();
+    let row4box4Value = document.getElementById('row4box4').value.toLowerCase();
+
+    let row5box0Value = document.getElementById('row5box0').value.toLowerCase();
+    let row5box1Value = document.getElementById('row5box1').value.toLowerCase();
+    let row5box2Value = document.getElementById('row5box2').value.toLowerCase();
+    let row5box3Value = document.getElementById('row5box3').value.toLowerCase();
+    let row5box4Value = document.getElementById('row5box4').value.toLowerCase();
+
     const answerArray = answer.toLowerCase().split("");
     const guessArray = [
         [row1box0Value, row1box1Value, row1box2Value, row1box3Value, row1box4Value],
-        [row2box0Value, row2box1Value, row2box2Value, row2box3Value, row2box4Value]
+        [row2box0Value, row2box1Value, row2box2Value, row2box3Value, row2box4Value],
+        [row3box0Value, row3box1Value, row3box2Value, row3box3Value, row3box4Value],
+        [row4box0Value, row4box1Value, row4box2Value, row4box3Value, row4box4Value],
+        [row5box0Value, row5box1Value, row5box2Value, row5box3Value, row5box4Value]
     ];
 
-    console.log("Answer array: " + answerArray);
-    console.log(guessArray);
-
+    // Looping through to check the values of each square
     for (let i = 0; i < guessArray.length; i++) {
         let count = 0;
         let currentRowBeingChecked = guessArray[i];
@@ -36,7 +56,6 @@ const checkWord = (word) => {
 
             if (answerArray.includes(currentRowBeingChecked[j])) {
                 let targetId = "row" + currentRowIndex.toString() + "box" + j.toString();
-                console.log(targetId);
                 let target = document.getElementById(targetId);
                 target.style.backgroundColor = "#FFEE8C";
             }
